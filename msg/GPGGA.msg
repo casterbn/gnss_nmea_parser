@@ -1,0 +1,10 @@
+float64 time
+float64 latitude
+float64 longitude
+float64 quality
+float64 num_SV
+float64 HDOP
+float64 altitude
+float64 sep
+float64 diff_age
+float64 diff_station

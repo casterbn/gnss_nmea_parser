@@ -1,0 +1,235 @@
+
+
+/*	
+// 	int length = _str.substr(res).size();
+// 	const char* a = _str.substr(res).c_str();
+// 	int first = 0;
+// 	first += a[0];
+// 	
+// 	stringstream ss;
+// 	ss << _str.at(res+4);
+// 	int c;
+// 	ss >> c;
+// 	
+// 	ROS_INFO_STREAM("0: " << _str.at(res));	
+// 	ROS_INFO_STREAM("1: " << _str.at(res+1));
+// 	ROS_INFO_STREAM("2: " << _str.at(res+2));
+// 	ROS_INFO_STREAM("3: " << _str.at(res+3));
+// 	ROS_INFO_STREAM("4: " << _str.at(res+4));
+// 	ROS_INFO_STREAM("4: " << c);
+// 	ROS_INFO_STREAM("length: " << length);
+
+	
+	const char* a = _str.c_str();
+	
+	int16 le;
+	le.byte_high = a[res + 5];
+	le.byte_low = a[res + 4];
+	ROS_INFO_STREAM(le.getValue());  
+	
+	
+	
+	
+	unsigned char val1 = _str.at(res + 0);
+	unsigned char val2 = _str.at(res + 1);
+	unsigned char val3 = _str.at(res + 2);
+	unsigned char val4 = _str.at(res + 3);
+	unsigned char val5 = _str.at(res + 4);
+	unsigned char val6 = _str.at(res + 15);
+	unsigned char val7 = _str.at(res + 26);
+	unsigned char val8 = _str.at(res + 37);
+	
+	char ch[]={0x12,0x34,0x56,0x78};  
+	int* p=(int*)ch;  
+	ROS_INFO_STREAM(hex<<*p);
+	 
+	stringstream ss;
+	unsigned int c = (unsigned int) val5;
+
+	
+	
+	char g = (char)0x80;
+	
+	
+
+	
+	
+	
+	ROS_INFO_STREAM(" " << " " << (int)((g>>1) & 0x7f));
+	
+	
+	
+	
+// 	
+// 	
+// 	for (size_t i = 0; i < _str.length(); ++i) {
+// 	    ROS_INFO_STREAM(" test char* a: " << i << ": " << a[i]);
+// 	    ss << a[i];
+// 	    int c;
+// 	    ss >> c;
+// 	    ROS_INFO_STREAM(" test int: " << i << ": " << (int)a[i]);
+// 	}
+	
+	unsigned short b;
+	
+	
+// 	= (unsigned short)a[4] + ((unsigned short)a[5] << 8);
+	
+	
+    
+	ROS_INFO_STREAM(" test: " << val6 << " " << val7 << " " << val8 << " ");
+	
+/*	if (UBX::check(_str.substr(res))) {
+
+	}*/	    
+	
+// 	    string class_id = _str.substr(res_idx_UBX+2, 2);
+// 	    if (class_id == UBX::RAWX_6_CLASS_ID) {
+// 		ROS_INFO_STREAM("Receive: UBX::RAWX");		
+// // 		msg_RAWX.parseRAWX(_str.substr(res_idx_UBX+5, 2));	
+// 	    }
+// 	    index_UBX = res_idx_UBX + 1;*/
+
+// 	// validate the UBX message
+// 	
+// 	const char* ch = _str.c_str();
+// 	
+// 	float f = 100.8912345600108992;
+// 	char*p = (char*)(&f);
+// 	unsigned int *pi = (unsigned int *) (&f);	
+// 	
+// 	unsigned int k = *pi;
+// 	printf("float number to be dissected: f = %-32.32g\n", f);
+// 	
+// 	for (int i = 3; i >= 0; i--)
+// 	    printf("0x%02X ", p[i] & 0xff);
+// 	printf("\n");	
+// 	
+// 	char buf[33];
+// 	for (int i = 31; i >= 0; i--) {
+// 	    buf[i] = (char) (k % 2 + 0x30);
+// 	    k >>= 1;
+// 	}
+// 
+// 	for (int i = 0; i < 32; i++) {
+// 	    printf("%c%s", buf[i], (i + 1) % 4 == 0 ? " " : "");
+// 	}
+// 	
+// 	for (int i = 0; i < 32; i++) {
+// 	    if (i == 0)
+// 		printf("\nsign    : %c \nexponent: ", buf[i]);
+// 	    if (i > 0 && i <= 8)
+// 		printf("%c", buf[i]);
+// 	    if (i == 8)
+// 		printf("\nmantissa: ");
+// 	    if (i > 8)
+// 		printf("%c", buf[i]);
+// 	}	
+// 	printf("\n");
+// 
+// 	double carrier_phase = 0.0;
+// 	char* ch_carrier_phase = (char*)(&carrier_phase);
+// 	for (int i = 0; i < 8; ++i) {
+// 	    ch_carrier_phase[i] = ch[res+14+i] & 0xff;
+// 	}
+// 	ROS_INFO_STREAM("double: " << carrier_phase);
+// 	
+// 	double pr = 0.0;
+// 	char* ch_pr = (char*)(&pr);
+// 	for (int i = 0; i < 8; ++i) {
+// 	    ch_pr[i] = ch[res+22+i] & 0xff;
+// 	}
+// 	ROS_INFO_STREAM("double: " << pr);
+// 	
+// 	float doppler = 0.0;
+// 	char* ch_doppler = (char*)(&doppler);
+// 	for (int i = 0; i < 8; ++i) {
+// 	    ch_doppler[i] = ch[res+30+i] & 0xff;
+// 	}
+// 	ROS_INFO_STREAM("float: " << doppler);
+// 
+// // 	int16 le;
+// // 	le.byte_2 = ch[res + 5];
+// // 	le.byte_1 = ch[res + 4];
+// // 	ROS_INFO_STREAM(le.getValue());
+// 	
+// /*	uint64 ulo;
+// 	ulo.byte_8 = ch[res + 21];
+// 	ulo.byte_7 = ch[res + 20];
+// 	ulo.byte_6 = ch[res + 19];
+// 	ulo.byte_5 = ch[res + 18];
+// 	ulo.byte_4 = ch[res + 17];
+// 	ulo.byte_3 = ch[res + 16];
+// 	ulo.byte_2 = ch[res + 15];
+// 	ulo.byte_1 = ch[res + 14];
+// 	ROS_INFO_STREAM(ulo.getValue()); 	
+// 	
+// 	int16 le;
+// 	le.byte_2 = ch[res + 5];
+// 	le.byte_1 = ch[res + 4];
+// 	ROS_INFO_STREAM(le.getValue());*/  
+// // 	
+// // 	uint16 ule;
+// // 	ule.byte_high = a[res + 5];
+// // 	ule.byte_low = a[res + 4];
+// // 	ROS_INFO_STREAM(ule.getValue()); 
+// // 	
+// // 	
+// // 	
+// // 	ROS_INFO_STREAM("char: " << (int)a[res + 12]);
+// // 	ROS_INFO_STREAM("str: " << (int)_str.at(res + 12));
+// // 
+// // 	string str_sub = _str.substr(0, 2);
+// // 	const char* leng = str_sub.c_str();
+// // 	ROS_INFO_STREAM(leng[0] << leng[1] << (int)_str.at(0) << (int)_str.at(1)); 
+// //         short* value_leng=(short*)leng;
+// // 	ROS_INFO_STREAM(*value_leng); 
+// // 	
+// // 	// 伪距从14开始
+// // 	
+// // 	uint64 ulo;
+// // 	ulo.byte_8 = a[res + 21];
+// // 	ulo.byte_7 = a[res + 20];
+// // 	ulo.byte_6 = a[res + 19];
+// // 	ulo.byte_5 = a[res + 18];
+// // 	ulo.byte_4 = a[res + 17];
+// // 	ulo.byte_3 = a[res + 16];
+// // 	ulo.byte_2 = a[res + 15];
+// // 	ulo.byte_1 = a[res + 14];
+// // 	ROS_INFO_STREAM(ulo.getValue()); 
+// // 	
+// // 	
+// // 	const char* pr = _str.substr(res+14, 8).c_str();
+// //         long* value=(long*)pr;
+// // 	ROS_INFO_STREAM(*value << "substr length: " << _str.substr(res+14, 8).length()); 
+// // 	
+// 	ROS_INFO_STREAM((int)ch[res + 34]);
+// 	
+// 	ROS_INFO_STREAM((int)ch[res + 12]);
+// // 	
+// // 	
+// // 	uint32 ui32;
+// // 	ui32.byte_4 = 0x00;
+// // 	ui32.byte_3 = 0x01;
+// // 	ui32.byte_2 = 0x00;
+// // 	ui32.byte_1 = 0x41;
+// // 	ROS_INFO_STREAM("ui32: " << ui32.getValue()); 	
+// // 	
+// // 	char ch1[] = {0x41, 0x00, 0x01, 0x00};
+// // 	string str1(ch1);
+// // 	ROS_INFO_STREAM("str1: " << str1 << " length: " << str1.size()); 
+// // 	char pr1[4];
+// // 	strcpy(pr1,str1.c_str());
+// // 	
+// // 	ui32.byte_4 = pr1[3];
+// // 	ui32.byte_3 = pr1[2];
+// // 	ui32.byte_2 = pr1[1];
+// // 	ui32.byte_1 = pr1[0];	
+// // 	ROS_INFO_STREAM("ui32: str: " << ui32.getValue()); 	
+// // 	
+// // 	
+// // 
+// // 	ROS_INFO_STREAM(pr1[0] << " "<< pr1[1] << " " << (int)pr1[2] << " "<<  (int)pr1[3]); 
+// //         unsigned int* value1=(unsigned int*)pr1;
+// // 	ROS_INFO_STREAM(*value1); 	
+// 	
